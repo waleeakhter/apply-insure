@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>apply.insure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+        tr.table-saprate {
+            height: 25px;
+        }
+
+        a {
+            outline: none;
+            color: #00b7fa;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        .active:hover {
+            opacity: 0.8;
+        }
+
+        .active {
+            transition: all 0.3s ease;
+        }
+
+        .active-d,
+        .active-l {
+            overflow: hidden;
+        }
+
+        .active-d a,
+        .active-l a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .active-d a:after,
+        .active-l a:after {
+            transition: all 0.3s ease;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .active-d a:hover:after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .active-l a:hover:after {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .h-u a {
+            text-decoration: none !important;
+        }
+
+        .h-u a:hover {
+            text-decoration: underline !important;
+        }
+
+        a img {
+            border: none;
+        }
+
+        table td {
+            mso-line-height-rule: exactly;
+        }
+
+        ul {
+            margin: 0 0 0 20px;
+            padding: 0;
+        }
+
+        table.datatable .myRow:nth-child(even) {
+            background-color: lightgray;
+        }     
+
+        .ExternalClass,
+        .ExternalClass a,
+        .ExternalClass span,
+        .ExternalClass b,
+        .ExternalClass br,
+        .ExternalClass p,
+        .ExternalClass div {
+            line-height: inherit;
+        }
+
+        .tpl-content {
+            padding: 0 !important;
+        }
+
+        .cke_show_borders {
+            background: #e4e4e4 !important;
+        }
+
+        .tpl-repeatmovewrap>.tpl-repeatmove {
+            top: -15px !important;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        p {
+            margin: 2px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .flexible {
+                width: 100% !important;
+            }
+
+            .table-center {
+                float: none !important;
+                margin: 0 auto !important;
+            }
+
+            .img-flex img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .aligncenter {
+                text-align: center !important;
+            }
+
+            .table-holder {
+                display: table !important;
+                width: 100% !important;
+            }
+
+            .thead {
+                display: table-header-group !important;
+                width: 100% !important;
+            }
+
+            .trow {
+                display: table-row !important;
+                width: 100% !important;
+            }
+
+            .tfoot {
+                display: table-footer-group !important;
+                width: 100% !important;
+            }
+
+            .flex {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .hide {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+                padding: 0 !important;
+                font-size: 0 !important;
+                line-height: 0 !important;
+            }
+
+            .plr-0 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .plr-15 {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .pt-0 {
+                padding-top: 0 !important;
+            }
+
+            .pt-10 {
+                padding-top: 10px !important;
+            }
+
+            .pt-30 {
+                padding-top: 30px !important;
+            }
+
+            .pb-15 {
+                padding-bottom: 15px !important;
+            }
+
+            .pb-30 {
+                padding-bottom: 30px !important;
+            }
+
+            .property {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="#ffffff" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+    <div class="flexible" style="margin: 0 auto;width: 100%;">
+        <div style="height: 50px;background-color:#3393FF;text-align: center;">
+            <div style="padding-top: 10px; width: 100%;font-family: sans-serif;font-size: 22px; color: #fff;font-weight: 600;">New Quote Reqest</div>
+        </div>
+
+        <div style="height: auto;font-family: sans-serif;background-color:#fff;text-align: center;">
+            <table width="100%" class="flexible" class="flexible" style="margin: 30px auto;" cellpadding="0">
+                <tr>
+                    <td style="text-align: center;width: 33%;">
+                        <div style="font-size: 18px;">Agent:</div>
+                        <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">Peter Hughes</div>
+                        <div style="font-size: 14px;margin-top: 10px;">610-699-9000 </div>
+                        <div style="font-size: 14px;margin-top: 10px;">peter@guardha.com </div>
+                    </td>
+                    <td style="text-align: center;width: 33%;"><img style="height: 80px;width: 80px;" src="https://apply.insure/assets/images/umbrella.png"/></td>
+                    <td style="text-align: center;width: 33%;">
+                        <div style="font-size: 18px;">Client:</div>
+                        
+                            
+                            
+                                <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">Waleed akhter</div>
+                                                      
+                        
+                        <div style="font-size: 14px;margin-top: 10px;">03028004409 </div>
+                        <div style="font-size: 14px;margin-top: 10px;">waleed@karigar.pk </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="height: auto;font-family: sans-serif;background-color:#3393FF;color:white;text-align: center;">
+            <div style="color:white;font-family: sans-serif;font-size: 14px;padding-top: 10px;padding-bottom: 20px;font-weight: bold;">HOUSEHOLD MEMBERS</div>
+            <table width="80%" class="flexible" class="flexible" style="margin: auto;padding-bottom: 20px;" cellpadding="0">
+                <tr>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 25px;width: 25px;padding: 10px;" src="https://apply.insure/assets/images/user2.png"/>                       
+                    </td>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 25px;width: 25px;padding: 10px;" src="https://apply.insure/assets/images/birthday2.png"/>
+                    </td>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 33px;width: 33px;" src="https://apply.insure/assets/images/card.png"/>
+                    </td>
+                </tr>
+                
+                    
+                        <tr>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">Waleed akhter</div>
+                            </td>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">02-02-1992</div>
+                            </td>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">12345</div>
+                            </td>
+                        </tr>
+                    
+                    <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                
+            </table>
+        </div>
+        
+        <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center; margin-top: 55px;">
+            <p style="margin-bottom: 0px">Risk Factor</p>
+           <h1 style="margin-top: 0px">Balanced Risk</h1>
+            <table width="80%" class="flexible"  style="margin: 30px auto;" cellpadding="0">
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question1:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Yes</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question2:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Get me the best combo of low price and great coverage</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question3:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Yes</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question4:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;"> I want a high deductible (most savings)</div>                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        
+           <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center;">
+            <p>Policy Start Date</p>
+         <h1>April 30th 2022</h1>
+           </div>
+        <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center;">
+            <div><img style="height: 80px;width: 80px;margin: 20px auto;" src="https://apply.insure/assets/images/location.png"/></div>
+            <div style="font-size: 14px;padding: 10px auto;font-weight: bold;">Your Address</div>
+            <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">
+                
+                  247 Cohas Ave, Manchester, NH 03109, USA
+                  
+            </div>
+            <table width="80%" class="flexible"  style="margin: 30px auto;" cellpadding="0">
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Year Build:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">1922</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Sq Ft:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">12</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Property To Insure:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">247 Cohasset Lane, Chico, CA</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Insurance Type:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Home</div>                        
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Own / rent:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">
+                            
+                            
+                            Own
+                            </div>
+                    </td>
+                </tr>
+
+                
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Foundation:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">slab -
+							</div>
+                    </td>
+                </tr>
+
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Security System:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">
+							No
+							</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Dog:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">
+							No
+							
+							</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Age of Roof:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">
+                            5-20 yr
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Roof Type:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">
+                            Wood shingle
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Short Term Rentals(airBnB,etc):</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Property owned by corporation or a trust?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Multiple Unit Property?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Have you filed any property insurance claims?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Have you ever had a policy cancelled or non-renewed in last 3 years?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Do you have a swimming pool?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">false</div>
+                    </td>
+                </tr>
+
+                 <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Applicant IP Address</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">103.149.33.29</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div><img style="height: 80px;width: 80px;margin: 20px auto;" src="https://apply.insure/assets/images/suv.png"/></div>
+            <div style="font-size: 14px;padding: 10px auto;font-weight: bold;">Car Insurance</div>            
+            
+            <table width="80%" class="flexible datatable"  style="margin: 30px auto;" cellpadding="0">
+                    <tr style="height: 20px;">                    
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Year</h4>                       
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Type</h4>
+                        </td>
+                        
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Model</h4>
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">VIN</h4>
+                        </td>
+                    </tr>
+                                    
+                    <tr style="height: 20px;background-color:lightgray;">                    
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">2022</div>                       
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">Acura</div>
+                        </td>
+                        
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">12</div>
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">undefined</div>
+                        </td>
+                    </tr>
+                
+
+               
+                
+                
+            </table>
+                 <div style="text-align: center;color:#000"> 
+                   <div style="font-size: 14px;">Current Carrier:</div> 
+                    <h2 style="margin:0; margin-bottom:1rem ">Chubb</h2>   
+                    <div style="font-size: 14px;">Current Premium:</div> 
+                     <h2 style="margin:0; margin-bottom:1rem ">$12/month</h2>          
+                 </div>
+            
+        </div>
+        
+
+        <div style="font-family: sans-serif;height: 200px;background-color:#3393FF;text-align: center;padding: 10px;">
+            <div style="color:white;font-size: 14px;padding-top: 10px;padding-bottom: 20px;font-weight: bold;">Notes from the insured</div>
+            
+        </div>
+        
+    </div>
+</body>
+
+</html>

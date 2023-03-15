@@ -1,0 +1,93 @@
+<div class="md-form form-group">
+  <div class="row">
+    <div class="col-xl-6 col-lg-7">
+      <div class="" style="margin-bottom: 40px;">
+
+        <h3 class="font-weight-bold mb-5 main_screen_heading text-left">What cars are in your household?</h3>
+
+      </div>
+
+      <div class="row propertyBoard" *ngFor="let item of carData; index as i">
+        <div class="col-2 m-0">
+          <div class="d-flex align-items-center justify-content-center">
+            <img src="../../../assets/images/car.svg" class="mx-auto" style="height: 55px;width: 55px;" />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="row m-0">
+            <div class="col-6  col-md-3 m-0 p-1">
+              <div class="form-group">
+                <div class="md-outline md-form opt_box">
+                  <select class="browser-default custom-select CarYearInput" [(ngModel)]="carData[i]['year']">
+                    <option value="" selected>Year</option>
+                    <option *ngFor="let item of CarYearData; index as i" [value]="item.year">{{item.year}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-6  col-md-3 m-0 p-1">
+              <div class="form-group">
+                <div class="md-outline md-form opt_box">
+                  <select class="browser-default custom-select CarTypeInput" [(ngModel)]="carData[i]['type']">
+                    <option value="" selected>Make</option>
+                    <option *ngFor="let item of CarTypeData; index as i" [value]="item.type">{{item.type}}</option>
+                    <!-- <option  [value]="BMW">BMW</option>
+                  <option  [value]="OXWD">OWX</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-6   col-md-3 m-0 p-1">
+              <div class="form-group">
+                <div class="md-outline md-form modal_box">
+                  <input mdbInput type="text" class="form-control" placeholder="Model" [(ngModel)]="carData[i]['model']"
+                    [ngModelOptions]="{standalone: true}" style="height: 36px;">
+                </div>
+              </div>
+            </div>
+            <div class=" col-1  m-0">
+              <button type="button" class="close mb-3" aria-label="Close" *ngIf="carData.length>1" (click)="deleteCar(i)">
+                <span aria-hidden="true">×</span>
+              </button>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngIf="carData.length<4">
+          <div class="md-outline md-form add-car-containter">
+            <div class="addCar text-left" (click)="addCar()">
+              <button mdbBtn type="button" size="md"
+                style="letter-spacing: 2px;background-color: #3C3C3C!important;color : white" class="shadow-none ml-0"
+                (click)="addPerson()">
+                Add <i class="fa fa-plus"></i>
+              </button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 p-md-0 row property next-btn-div" style="margin: 50px 0px;">
+        <div class="col-md-12 p-0">
+          <app-next-button type="button" color="primary" text="Continue" (click)="next()"></app-next-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-1 d-xl-block d-none"></div>
+
+    <div class="col-xl-5 col-lg-5">
+      <div class="side_img_div slideInRight_custom animated zoomOut_custom delay-1s"
+        [ngStyle]="{'background-image': 'url(https://apply.insure/'+autoimageurl+')'}"></div>
+    </div>
+
+
+
+
+
+  </div>
+
+</div>

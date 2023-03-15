@@ -1,0 +1,286 @@
+<div class="md-form form-group container">
+  <p class="font-weight-bold text-left addressBarwithBorder"> <img src="./../../../assets/locationmarker.svg" alt="">
+    {{formattedAddress}}</p>
+  <!--<div class="md-form form-group" *ngIf="step==3 && !isCarDiv">-->
+  <div class="row propertyBoard animated fadeIn justify-content-center">
+    <div class="col-lg-7 col-xl-8">
+      <!-------add all types here------>
+      <div class="row  foundation p-md-0 gy-4">
+        <div class="col-6 col-md-3">
+          <p class="font-weight-bolder label">
+            <!-- <img src="assets/images/Asset2.png" height="20" class="d-inline-block align-top mr-2" alt=""> -->
+            <span class="font-weight-bold fs-20">Foundation</span>
+          </p>
+        </div>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.foundation == 'basement' ?'activeOption':'inactiveOption'"
+            (click)="discountsData.foundation='basement'">
+            <span class=" text-center">basement</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.foundation == 'slab' ? 'activeOption':'inactiveOption'"
+            (click)="discountsData.foundation='slab'">
+            <span class=" text-center">slab</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.foundation == 'other' ?'activeOption':'inactiveOption'"
+            (click)="discountsData.foundation='other'">
+            <span class=" text-center">other</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 row property basement-option" *ngIf="discountsData.foundation == 'basement'">
+        <div>
+          <div [ngClass]="discountsData.basement_status == 'finished' ?'activeOption':'inactiveOption'"
+            (click)="discountsData.basement_status='basement'" (click)="basementStatusChange('finished')">
+            <span class=" text-center">Finished</span>
+          </div>
+        </div>
+        <div>
+          <div [ngClass]="discountsData.basement_status == 'unfinished' ? 'activeOption':'inactiveOption'"
+            (click)="discountsData.basement_status='unfinished'" (click)="basementStatusChange('unfinished')">
+            <span class=" text-center">Unfinished</span>
+          </div>
+        </div>
+      </div>
+      <!--------->
+      <div class=" row  security_sys p-md-0 gy-4">
+        <p class="font-weight-bolder label col-6 col-md-3">
+          <!-- <img src="assets/images/login.svg" height="20" class="d-inline-block align-top mr-2" alt=""> -->
+          <span class="font-weight-bold fs-20">Security System?</span>
+        </p>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.security_system?'activeOption':'inactiveOption'"
+            (click)="discountsData.security_system=true">
+            <span class=" text-center">Monitored</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.security_system===false?'activeOption':'inactiveOption'"
+            (click)="discountsData.security_system=false">
+            <span class=" text-center">Cameras</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.security_system===none?'activeOption':'inactiveOption'"
+            (click)="discountsData.security_system=none">
+            <span class=" text-center">None</span>
+          </div>
+        </div>
+      </div>
+      <!---------->
+
+      <div class=" row   p-md-0 gy-4">
+        <p class="font-weight-bolder label col-3 col-md-3">
+          <!-- <img src="assets/images/corgi.svg" height="20" class="d-inline-block align-top mr-2" alt=""> -->
+
+          <span class="font-weight-bold fs-20 ">Dog?</span>
+        </p>
+        <div class="col-4 col-md-3">
+          <div [ngClass]="discountsData.dog===true?'activeOption':'inactiveOption'" (click)="discountsData.dog=true"
+            (click)="dogcheck(true)">
+            <span class=" text-center">yes</span>
+          </div>
+        </div>
+        <div class="col-4 col-md-3">
+          <div [ngClass]="discountsData.dog===false?'activeOption':'inactiveOption'" (click)="discountsData.dog=false"
+            (click)="dogcheck(false)">
+            <span class=" text-center">no</span>
+          </div>
+        </div>
+
+        <div class="dog_desc dog_desc col-md-3" *ngIf="dogstatus==true">
+          <input [(ngModel)]='discountsData.dog_desc' class="form-control" placeholder="Description:" />
+        </div>
+      </div>
+      <!--------->
+
+
+      <div class=" row  p-md-0 gy-4 age_roof">
+        <p class="font-weight-bolder label col-6 col-md-3">
+          <!-- <img src="assets/images/roof.svg" height="20" class="d-inline-block align-top mr-2" alt=""> -->
+          <span class="font-weight-bold fs-20">Age of roof?</span>
+
+        </p>
+        <div class="col-6 col-md-3">
+          <div [ngClass]="discountsData.roof_shape==='1-5 yr'?'activeOption':'inactiveOption'"
+            (click)="discountsData.roof_shape='1-5 yr'">
+            <span class=" text-center">1-5 yr</span>
+          </div>
+        </div>
+        <div class="flat col-6 col-md-3">
+          <div [ngClass]="discountsData.roof_shape==='5-20 yr'?'activeOption':'inactiveOption'"
+            (click)="discountsData.roof_shape='5-20 yr'">
+            <span class=" text-center">5-20 yr</span>
+          </div>
+        </div>
+        <div class="flat col-6 col-md-3">
+          <div [ngClass]="discountsData.roof_shape==='20+ yr'?'activeOption':'inactiveOption'"
+            (click)="discountsData.roof_shape='20+ yr'">
+            <span class=" text-center">20+ yr</span>
+          </div>
+        </div>
+        <!-- <div class="col-md-1 col-1 roof_type_sale sale flat">
+                <img src="assets/images/sale.svg" height="25" class="d-inline-block align-top" alt="">
+              </div> -->
+      </div>
+      <!---------->
+
+
+      <div class=" row  roof_type p-md-0 gy-4 roof_type">
+        <p class="font-weight-bolder label col-md-3">
+          <!-- <img src="assets/images/roof.svg" height="20" class="d-inline-block align-top mr-2" alt=""> -->
+          <span class="font-weight-bold fs-20">Roof type?</span>
+        </p>
+        <div class="col-md-9">
+          <owl-carousel [options]="homeSlider" [carouselClasses]="['owl-theme','home-slider']">
+            <div class="item">
+              <div (click)="discountsData.roof_type='Asphalt shingle'"
+                [ngClass]="discountsData.roof_type=='Asphalt shingle'?'activeOption':'inactiveOption'">
+                <p>Asphalt shingle</p>
+                <img src="assets/images/roof_type/asphalt_shingle.png" height="250" width="250" />
+              </div>
+            </div>
+            <div class="item">
+              <div (click)="discountsData.roof_type='Wood shingle'"
+                [ngClass]="discountsData.roof_type=='Wood shingle'?'activeOption':'inactiveOption'">
+                <p>Wood shingle</p>
+                <img src="assets/images/roof_type/wood_shingle.png" height="250" width="250" />
+              </div>
+            </div>
+            <div class="item">
+              <div (click)="discountsData.roof_type='Slate roof'"
+                [ngClass]="discountsData.roof_type=='Slate roof'?'activeOption':'inactiveOption'">
+                <p>Slate roof</p>
+                <img src="assets/images/roof_type/slate_roof.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Rubber'"
+                [ngClass]="discountsData.roof_type=='Rubber'?'activeOption':'inactiveOption'">
+                <p>Rubber</p>
+                <img src="assets/images/roof_type/rubber.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Concrete Tile'"
+                [ngClass]="discountsData.roof_type=='Concrete Tile'?'activeOption':'inactiveOption'">
+                <p>Concrete Tile</p>
+                <img src="assets/images/roof_type/concrete_tile.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Solar'"
+                [ngClass]="discountsData.roof_type=='Solar'?'activeOption':'inactiveOption'">
+                <p>Solar</p>
+                <img src="assets/images/roof_type/solar.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Tile roof'"
+                [ngClass]="discountsData.roof_type=='Tile roof'?'activeOption':'inactiveOption'">
+                <p>Tile roof</p>
+                <img src="assets/images/roof_type/tile_roof.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Tar and Gravel'"
+                [ngClass]="discountsData.roof_type=='Tar and Gravel'?'activeOption':'inactiveOption'">
+                <p>Tar and Gravel</p>
+                <img src="assets/images/roof_type/tar_and_gravel.png" height="250" width="250" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div (click)="discountsData.roof_type='Composition Shingle'"
+                [ngClass]="discountsData.roof_type=='Composition Shingle'?'activeOption':'inactiveOption'">
+                <p>Composition Shingle</p>
+                <img src="assets/images/roof_type/compostion_shingle.png" height="250" width="250" />
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+      </div>
+      <!----------->
+
+      <div class="col-12 row customefixquestion" *ngFor="let item of pageFiveCustomQuestion; index as i">
+        <div class="col-md-8 col-7">
+          <p class="font-weight-bolder label">
+            {{ item.question }}
+          </p>
+        </div>
+
+        <!-- For input box -->
+        <div class="col-md-12" *ngIf="item.type == 'input'">
+          <div>
+            <textarea [(ngModel)]="item.answer" class="form-control" placeholder="Answer:"></textarea>
+          </div>
+        </div>
+
+        <!-- Yes/No Logic-->
+        <div class="col-md-2 col-2" *ngIf="item.type == 'y/n'">
+          <div [ngClass]="item.answer == 'Yes' ? 'activeOption':'inactiveOption'" (click)="item.answer = 'Yes'">
+            <span class=" text-center">yes</span>
+          </div>
+        </div>
+        <div class="col-md-2 col-2" *ngIf="item.type == 'y/n'">
+          <div [ngClass]="item.answer == 'No' ? 'activeOption':'inactiveOption'" (click)="item.answer = 'No'">
+            <span class=" text-center">no</span>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn bordrBtn ml-0 w-100" (click)="next()">Continue
+          <svg xmlns="http://www.w3.org/2000/svg" width="31.338" height="17.237" viewBox="0 0 31.338 17.237">
+            <path id="path9413"
+              d="M-1212.821,1124.094h24.99l-4.682,4.714a1.431,1.431,0,0,0,2.017,2.031l4.263-4.3,2.846-2.87a1.44, 1.44,0,0,0,0-2.02l-7.109-7.167a1.418,1.418,0,0,0-1.031-.434,1.434,1.434,0,0,0-.986,2.464l4.693,4.714h-25.074a1.434,1.434,0,1,0,.073,2.867Z"
+              transform="translate(1214.31 -1114.049)" />
+          </svg>
+        </button>
+        <!-- <button class="btn bordrBtn ml-0" type="button" (click)="skip()"> Skip
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="31.338" height="17.237" viewBox="0 0 31.338 17.237">
+          <path id="path9413"
+            d="M-1212.821,1124.094h24.99l-4.682,4.714a1.431,1.431,0,0,0,2.017,2.031l4.263-4.3,2.846-2.87a1.44, 1.44,0,0,0,0-2.02l-7.109-7.167a1.418,1.418,0,0,0-1.031-.434,1.434,1.434,0,0,0-.986,2.464l4.693,4.714h-25.074a1.434,1.434,0,1,0,.073,2.867Z"
+            transform="translate(1214.31 -1114.049)" />
+        </svg>
+
+      </button> -->
+      </div>
+      <!---------------end------------->
+    </div>
+    <div class="col-lg-5 col-xl-4">
+      <div class="   zoomOut_custom delay-1s">
+        <img src="./../../../assets/House&Person_v1_transparent.svg" alt="">
+      </div>
+    </div>
+
+
+    <!--<div class="offset-md-3 col-md-9" style="margin-bottom: 20px;">
+      <h5 class="font-weight-bolder h5-responsive" [ngStyle]="this.commonService.checkMobile()?{'font-size':'17px'}:{}">
+        <img src="../../../assets/images/maps-and-flags.png"
+             [ngStyle]="this.commonService.checkMobile()?{'height':'20px'}:{'height':'30px'}"
+             class="d-inline-block align-top" alt="">
+        <strong>&nbsp;{{
+          addressData['address'] + ', ' +
+          addressData['locality'] + ', ' +
+          addressData['administrative_area_level_1'] + ' ' +
+          addressData['postal_code']
+          }}</strong>
+      </h5>
+    </div>-->
+
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.bordrBtn {
+    width: 284.87px;
+    height: 44.86px;
+    border: 1px solid #d1d1d1;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vmin;
+    transition: all 0.25s ease-in-out;
+    border-radius: 5px !important;
+    svg {
+      fill: #0078ff !important;
+    }
+    &:hover {
+      background: #3C3C3C !important;
+      color: white;
+      svg {
+        fill: #ff8700 !important;
+      }
+    }
+  }

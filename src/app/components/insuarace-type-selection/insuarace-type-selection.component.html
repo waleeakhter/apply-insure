@@ -1,0 +1,46 @@
+
+<div class="row pb-4 pb-md-0 align-items-center">
+    <div class="col-lg-6 col-12 mt-3">
+        <div class="mb-5 main_screen_heading ">
+          <h5>Welcome!</h5>
+          <h6>First, tell us what  kind of insurance you would like a quote for!</h6>
+          <p>
+            <img src="./../../../assets/time.svg" alt="">
+           3-4 minutes to complete
+          </p>
+        </div>
+        <div class="insurance_types_main_div px-2 ">
+
+            <div class="insurance_types_sub_div " (click)="submitInsuaranceType('Home')">
+                <span class="font-weight-bold ">Home</span>
+                <img src="../../../assets/images/new_design/home.svg" width="35">
+            </div>
+            <div class="insurance_types_sub_div" (click)="submitInsuaranceType('Auto')">
+                <span class="font-weight-bold ">Auto</span>
+                <img src="../../../assets/images/new_design/car.svg" width="45">
+            </div>
+            <div class="tag">
+              <img src="./../../../assets/tag.svg" alt="" class="d-none d-md-block">
+              <div class="insurance_types_sub_div w-100" (click)="submitInsuaranceType('Bundle')" >
+                <div class="d-flex flex-column">
+                    <span class="font-weight-bold ">Bundle</span>
+                </div>
+                <div class="twoImages">
+                  <img src="../../../assets/images/new_design/home.svg" width="35">
+                  +
+                  <img src="../../../assets/images/new_design/car.svg" width="45">
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-1 col-12"></div>
+    <div class="col-lg-5 col-12 ">
+          <img src="./../../../assets/House&Person_v2.svg" class="img-fluid " alt="">
+    </div>
+</div>
+
+

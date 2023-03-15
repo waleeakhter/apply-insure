@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>apply.insure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+        tr.table-saprate {
+            height: 25px;
+        }
+
+        a {
+            outline: none;
+            color: #00b7fa;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        .active:hover {
+            opacity: 0.8;
+        }
+
+        .active {
+            transition: all 0.3s ease;
+        }
+
+        .active-d,
+        .active-l {
+            overflow: hidden;
+        }
+
+        .active-d a,
+        .active-l a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .active-d a:after,
+        .active-l a:after {
+            transition: all 0.3s ease;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .active-d a:hover:after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .active-l a:hover:after {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .h-u a {
+            text-decoration: none !important;
+        }
+
+        .h-u a:hover {
+            text-decoration: underline !important;
+        }
+
+        a img {
+            border: none;
+        }
+
+        table td {
+            mso-line-height-rule: exactly;
+        }
+
+        ul {
+            margin: 0 0 0 20px;
+            padding: 0;
+        }
+
+        table.datatable .myRow:nth-child(even) {
+            background-color: lightgray;
+        }     
+
+        .ExternalClass,
+        .ExternalClass a,
+        .ExternalClass span,
+        .ExternalClass b,
+        .ExternalClass br,
+        .ExternalClass p,
+        .ExternalClass div {
+            line-height: inherit;
+        }
+
+        .tpl-content {
+            padding: 0 !important;
+        }
+
+        .cke_show_borders {
+            background: #e4e4e4 !important;
+        }
+
+        .tpl-repeatmovewrap>.tpl-repeatmove {
+            top: -15px !important;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        p {
+            margin: 2px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .flexible {
+                width: 100% !important;
+            }
+
+            .table-center {
+                float: none !important;
+                margin: 0 auto !important;
+            }
+
+            .img-flex img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .aligncenter {
+                text-align: center !important;
+            }
+
+            .table-holder {
+                display: table !important;
+                width: 100% !important;
+            }
+
+            .thead {
+                display: table-header-group !important;
+                width: 100% !important;
+            }
+
+            .trow {
+                display: table-row !important;
+                width: 100% !important;
+            }
+
+            .tfoot {
+                display: table-footer-group !important;
+                width: 100% !important;
+            }
+
+            .flex {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .hide {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+                padding: 0 !important;
+                font-size: 0 !important;
+                line-height: 0 !important;
+            }
+
+            .plr-0 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .plr-15 {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .pt-0 {
+                padding-top: 0 !important;
+            }
+
+            .pt-10 {
+                padding-top: 10px !important;
+            }
+
+            .pt-30 {
+                padding-top: 30px !important;
+            }
+
+            .pb-15 {
+                padding-bottom: 15px !important;
+            }
+
+            .pb-30 {
+                padding-bottom: 30px !important;
+            }
+
+            .property {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="#ffffff" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+    <div class="flexible" style="margin: 0 auto;width: 100%;">
+        <div style="height: 50px;background-color:#3393FF;text-align: center;">
+            <div style="padding-top: 10px; width: 100%;font-family: sans-serif;font-size: 22px; color: #fff;font-weight: 600;">New Quote Reqest</div>
+        </div>
+
+        <div style="height: auto;font-family: sans-serif;background-color:#fff;text-align: center;">
+            <table width="100%" class="flexible" class="flexible" style="margin: 30px auto;" cellpadding="0">
+                <tr>
+                    <td style="text-align: center;width: 33%;">
+                        <div style="font-size: 18px;">Agent:</div>
+                        <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">{{agent['name']}}</div>
+                        <div style="font-size: 14px;margin-top: 10px;">{{agent['phone']}} </div>
+                        <div style="font-size: 14px;margin-top: 10px;">{{agent['email']}} </div>
+                    </td>
+                    <td style="text-align: center;width: 33%;"><img style="height: 80px;width: 80px;" src="https://apply.insure/assets/images/umbrella.png"/></td>
+                    <td style="text-align: center;width: 33%;">
+                        <div style="font-size: 18px;">Client:</div>
+                        {% if personData.length > 0 %}
+                            
+                            
+                                <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">{{ personData[0]['first_name']+ ' ' + personData[0]['last_name'] }}</div>
+                                                      
+                        {% endif %}
+                        <div style="font-size: 14px;margin-top: 10px;">{{phone}} </div>
+                        <div style="font-size: 14px;margin-top: 10px;">{{email}} </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="height: auto;font-family: sans-serif;background-color:#3393FF;color:white;text-align: center;">
+            <div style="color:white;font-family: sans-serif;font-size: 14px;padding-top: 10px;padding-bottom: 20px;font-weight: bold;">HOUSEHOLD MEMBERS</div>
+            <table width="80%" class="flexible" class="flexible" style="margin: auto;padding-bottom: 20px;" cellpadding="0">
+                <tr>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 25px;width: 25px;padding: 10px;" src="https://apply.insure/assets/images/user2.png"/>                       
+                    </td>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 25px;width: 25px;padding: 10px;" src="https://apply.insure/assets/images/birthday2.png"/>
+                    </td>
+                    <td style="text-align: center;width: 33%;">
+                        <img style="height: 33px;width: 33px;" src="https://apply.insure/assets/images/card.png"/>
+                    </td>
+                </tr>
+                {% if personData.length > 0 %}
+                    {% for person in personData  %}
+                        <tr>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">{{ person['first_name']+ ' ' + person['last_name'] }}</div>
+                            </td>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">{{ person['birthday'] }}</div>
+                            </td>
+                            <td style="text-align: center;width: 33%;">
+                                <div style="font-size: 14px;">{{ person['license'] }}</div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                {% endif %}
+            </table>
+        </div>
+        {% if riskManagementQuestions.question1  %}
+        <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center; margin-top: 55px;">
+            <p style="margin-bottom: 0px">Risk Factor</p>
+           <h1 style="margin-top: 0px">Balanced Risk</h1>
+            <table width="80%" class="flexible"  style="margin: 30px auto;" cellpadding="0">
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question1:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ riskManagementQuestions.question1 }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question2:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ riskManagementQuestions.question2 }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question3:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ riskManagementQuestions.question3 }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Question4:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ riskManagementQuestions.question4 }}</div>                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        {% endif %}
+           <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center;">
+            <p>Policy Start Date</p>
+         <h1>{{policyStartDate}}</h1>
+           </div>
+        <div style="font-family: sans-serif;height: auto;background-color:#fff;text-align: center;">
+            <div><img style="height: 80px;width: 80px;margin: 20px auto;" src="https://apply.insure/assets/images/location.png"/></div>
+            <div style="font-size: 14px;padding: 10px auto;font-weight: bold;">Your Address</div>
+            <div style="font-size: 22px;font-weight: bold;margin-top: 10px;">
+                {% if manualAddress  != "" %}
+                    {{ manualAddress }}
+                  {% else %}
+                  {{ currentAddress }}
+                  {% endif %}
+            </div>
+            <table width="80%" class="flexible"  style="margin: 30px auto;" cellpadding="0">
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Year Build:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ yearBuilt }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Sq Ft:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ sqft }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Property To Insure:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ address.address + ", " + address.locality + ", " + address.administrative_area_level_1 }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Insurance Type:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ insuranceType }}</div>                        
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Own / rent:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{% if selectedUserType  == "I rent this home" %}
+                            Rent
+                            {% endif %}
+                            {% if selectedUserType  == "I will own this home" %}
+                            Will Own
+                            {% endif %}
+                            {% if selectedUserType  == "I own this home" %}
+                            Own
+                            {% endif %}</div>
+                    </td>
+                </tr>
+
+                
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Foundation:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ discountsData.foundation }} -
+							{% if discountsData.foundation=="basement" %}
+							{{ discountsData.basement_status }}
+							{% endif %}</div>
+                    </td>
+                </tr>
+
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Security System:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{% if discountsData.security_system==true %}
+							Yes
+							{% else %}
+							No
+							{% endif %}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Dog:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{% if discountsData.dog==true %}
+							Yes
+							{% else %}
+							No
+							{% endif %}
+							{% if discountsData.dog==true %}
+							- {{ discountsData.dog_desc }}
+							{% endif %}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Age of Roof:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{% if discountsData.roof_shape != ""  %}
+                            {{ discountsData.roof_shape }}
+                        {% else %}
+                            -
+                        {% endif %}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Roof Type:</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{% if discountsData.roof_type != ""  %}
+                            {{ discountsData.roof_type }}
+                        {% else %}
+                            -
+                        {% endif %}</div>
+                    </td>
+                </tr>
+                
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Short Term Rentals(airBnB,etc):</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.term_rental == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Property owned by corporation or a trust?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.property_own == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Multiple Unit Property?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.multiple_unit == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Have you filed any property insurance claims?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.insurance_claims == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Have you ever had a policy cancelled or non-renewed in last 3 years?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.policy_renewed == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;background-color: lightgray;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Do you have a swimming pool?</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{propertyData.swimming_pool == true ? 'Yes' : 'No' }}</div>
+                    </td>
+                </tr>
+
+                 <tr style="height: 20px;">
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">Applicant IP Address</div>                       
+                    </td>
+                    
+                    <td style="text-align: center;width: 50%;vertical-align: middle;">
+                        <div style="font-size: 14px;">{{ipAddress}}</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div><img style="height: 80px;width: 80px;margin: 20px auto;" src="https://apply.insure/assets/images/suv.png"/></div>
+            <div style="font-size: 14px;padding: 10px auto;font-weight: bold;">Car Insurance</div>            
+            {% if carData.length > 0 %}
+            <table width="80%" class="flexible datatable"  style="margin: 30px auto;" cellpadding="0">
+                    <tr style="height: 20px;">                    
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Year</h4>                       
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Type</h4>
+                        </td>
+                        
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">Model</h4>
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <h4 style="font-size: 16px;">VIN</h4>
+                        </td>
+                    </tr>
+                {% for car in carData  %}                    
+                    <tr style="height: 20px;background-color:lightgray;">                    
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">{{ car['year'] }}</div>                       
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">{{ car['type'] }}</div>
+                        </td>
+                        
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">{{ car['model'] }}</div>
+                        </td>
+                        <td style="text-align: center;width: 25%;vertical-align: middle;">
+                            <div style="font-size: 14px;">{{ car['vin'] }}</div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+               
+                {# <tr style="height: 30px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        &nbsp;                       
+                    </td>                    
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                                       
+                    </td>                    
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        <div style="font-size: 22px;font-weight:bold;"></div>
+                    </td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        &nbsp;                       
+                    </td>                    
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        <div style="font-size: 14px;">Current Premium:</div>                       
+                    </td>                    
+                </tr>
+                <tr style="height: 20px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        <div style="font-size: 22px;font-weight:bold;">${{ current_auto_premium }}</div>
+                    </td>
+                </tr>
+
+                <tr style="height: 30px;">
+                    <td style="text-align: center;vertical-align: middle;" colspan="3">
+                        &nbsp;                       
+                    </td>                    
+                </tr> #}
+                
+            </table>
+                 <div style="text-align: center;color:#000"> 
+                   <div style="font-size: 14px;">Current Carrier:</div> 
+                    <h2 style="margin:0; margin-bottom:1rem ">{{ carrier_type }}</h2>   
+                    <div style="font-size: 14px;">Current Premium:</div> 
+                     <h2 style="margin:0; margin-bottom:1rem ">${{ current_auto_premium }}</h2>          
+                 </div>
+            {% endif %}
+        </div>
+        
+
+        <div style="font-family: sans-serif;height: 200px;background-color:#3393FF;text-align: center;padding: 10px;">
+            <div style="color:white;font-size: 14px;padding-top: 10px;padding-bottom: 20px;font-weight: bold;">Notes from the insured</div>
+            {% if requestorcomments %}
+                <div style="color:white;font-size: 14px;padding-top: 30px;padding-bottom: 20px;font-weight: bold;">{{ requestorcomments }}</div>
+            {% endif %}
+        </div>
+        
+    </div>
+</body>
+
+</html>

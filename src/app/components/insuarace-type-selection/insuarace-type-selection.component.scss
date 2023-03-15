@@ -1,0 +1,33 @@
+.main_screen_heading {
+  max-width: 374px;
+  text-align: center;
+  margin: auto;
+  h5 {
+    font-size: 30px;
+    font-weight: 500 !important;
+  }
+  h6 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #f8385d;
+    img {
+      margin-right: 5px;
+    }
+  }
+}
+
+.tag {
+  position: relative;
+  max-width: 384.49px;
+  margin: auto;
+  > img {
+    position: absolute;
+    left: -56px;
+    top: 0.68vmin;
+    z-index: 9;
+  }
+}
